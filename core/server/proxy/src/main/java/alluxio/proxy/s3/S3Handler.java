@@ -459,7 +459,7 @@ public class S3Handler {
       // replace the authorization header value to user
       LOG.debug("request origin Authorization Header is: {}, new user header is: {}",
           authorization, user);
-      mUser = user;
+      mUser = Configuration.global().getString(PropertyKey.SECURITY_LOGIN_USERNAME);
     } catch (Exception e) {
       LOG.warn("exception happened in Authentication.");
       throw e;

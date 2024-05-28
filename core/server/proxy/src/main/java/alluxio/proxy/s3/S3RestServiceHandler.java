@@ -194,7 +194,8 @@ public final class S3RestServiceHandler {
   private String getUser() {
     Map<String, String> headers = S3RestUtils.fromMultiValueToSingleValueMap(
         mRequestContext.getHeaders(), true);
-    String user = headers.get(S3RestUtils.ALLUXIO_USER_HEADER);
+    // String user = headers.get(S3RestUtils.ALLUXIO_USER_HEADER);
+    String user = Configuration.global().getString(PropertyKey.SECURITY_LOGIN_USERNAME);
     return user;
   }
 
